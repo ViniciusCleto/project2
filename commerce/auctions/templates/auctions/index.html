@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Active Listings
+{% endblock %}
+
+{% block body %}
+    <h2 class="text-center m-4">Active Listings</h2>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for listing in listings %}
+                <div class="col-lg-8 mb-4">
+                    <div class="card h-100">
+                        <div class="row no-gutters">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ listing.title }}</h5>
+                                    <p class="card-text">{{ listing.description }}</p>
+                                    <p class="card-text"><strong>Price:</strong> ${{ listing.price }}</p>
+                                    <a href="{% url 'listing-detail' listing.id %}" class="btn btn-primary mr-2">See details</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center"  style="border-left: 1px solid #13848f;">
+                                {% if listing.imageUrl %}
+                                    <a href="{{ listing.imageUrl }}" target="_blank">
+                                        <img src="{{ listing.imageUrl }}" class="card-img img-fluid img-div" alt="{{ listing.title }}">
+                                    </a>
+                                {% else %}
+                                    <div class="card-img-placeholder">
+                                        <p>No Image Available</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col">
+                    <p>No active listings.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header-container {
+    background-color: #10343e;
+    padding: 15px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header-container h1 , .user-authenticated{
+    padding: 8px;
+    color: white;
+}
+
+.nav {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nav-item a.nav-link {
+    color: white;
+}
+
+.nav-item a.nav-link:hover,
+.nav-item a.nav-link:focus,
+.nav-item a.nav-link.active {
+    background-color: #13848f;
+    border-radius: 12px;
+}
+
+.card {
+    border-color: #13848f;
+    box-shadow: 3px 3px #c0c0c0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.img-div {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.card-img-placeholder {
+    height: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-detail-img {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-btn {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.listing-detail-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.listing-detail-no-img {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: #13848f;
+    border-color: #13848f;
+}
+
+.btn-primary:hover {
+    background-color: #10343e;
+    border-color: #10343e;
+}
+
+.btn-secondary {
+    background-color: #50c19f;
+    border-color: #50c19f;
+}
+
+.btn-secondary:hover {
+    background-color: #317573;
+    border-color: #317573;
+}
+
+.btn-danger {
+    background-color: #f47669;
+    border-color: #f47669;
+}
+
+.btn-danger:hover {
+    background-color: #c34e52;
+    border-color: #c34e52;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    margin-bottom: 1rem;
+}
+

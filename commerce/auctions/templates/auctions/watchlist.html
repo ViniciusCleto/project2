@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Your watchlist
+{% endblock %}
+
+{% block body %}
+    <h2 class="text-center m-4">Your Watchlist</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for item in watchlist %}
+                <div class="col-lg-8 mb-4">
+                    <div class="card h-100">
+                        <div class="row no-gutters">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ item.listing.title }}</h5>
+                                    <p class="card-text">{{ item.listing.description }}</p>
+                                    <a href="{% url 'listing-detail' item.listing.id %}" class="btn btn-primary mr-2">See details</a>
+                                    <form action="{% url 'listing-detail' item.listing.id %}" method="post" class="d-inline">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="removeFromWatchlist" value="true">
+                                        <button type="submit" class="btn btn-danger">Remove from watchlist</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center" style="border-left: 1px solid #13848f;">
+                                {% if item.listing.imageUrl %}
+                                    <a href="{{ item.listing.imageUrl }}" target="_blank">
+                                        <img src="{{ item.listing.imageUrl }}" class="card-img img-fluid img-div" alt="{{ item.listing.title }}">
+                                    </a>
+                                {% else %}
+                                    <div class="card-img-placeholder">
+                                        <p>No Image Available</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col">
+                    <p>Your Watchlist is empty.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
